@@ -31,7 +31,7 @@ namespace sqoTraceabilityStation
 
             GetParametrosListagem(oListaParametrosListagem);
             sXmlDados = sXmlDados.Replace("null", "");
-            sqoClassPcpDynCriteriaItem oItem = null;
+            sqoClassPcpDynCriteriaItem oItem;
 
             try
             {
