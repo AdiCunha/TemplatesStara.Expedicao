@@ -1,22 +1,12 @@
 ﻿using AI1627Common20.TemplateDebugging;
-using NPOI.HSSF.UserModel;
-using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
 using Sequor.LES.Expedition.Api;
 using Sequor.LES.Expedition.Model;
 using sqoClassLibraryAI0502Biblio;
 using sqoClassLibraryAI0502Message;
-using sqoClassLibraryAI0502VariaveisSistema;
-using sqoClassLibraryAI1151FilaProducao;
 using sqoClassLibraryAI1151FilaProducao.Estrutura;
 using sqoClassLibraryAI1151FilaProducao.Process;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.OleDb;
-using System.Globalization;
-using System.IO;
 
 namespace sqoTraceabilityStation
 {
@@ -25,7 +15,8 @@ namespace sqoTraceabilityStation
     {
         private string sParamListagem_CRT_Texto = "";
 
-        private string basePath => "http://nmtwnseqiisdev.dcstara.com.br:81/Sequor.LES.Expedition";
+        private static string basePath => "http://nmtwnseqiisdev.dcstara.com.br:81/Sequor.LES.Expedition";
+        ShipmentLocationApi api = new ShipmentLocationApi(basePath);
 
         public override sqoClassMessage Executar(string sAction
                                                 , string sXmlDados
@@ -50,41 +41,61 @@ namespace sqoTraceabilityStation
                 switch (sAction)
                 {
                     case "Inserir":
-                        try
+                        if (oItem.Tipo_Expedicao_Codigo.Equals("CARREGAMENTO") && String.IsNullOrEmpty(oItem.Pais))
                         {
-                            if (oItem.Tipo_Expedicao_Codigo == "CARREGAMENTO")
+                            try
+                            {
+                                this.Inserir(oItem);
 
-                            this.Inserir(oItem);
-
-                            oClassMessage.Message = "Local de expedição inserido com sucesso - ID: " + oItem.ID;
-                            oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.OK;
-                            oClassMessage.MessageDescription = "";
-                            oClassMessage.Ok = true;
+                                oClassMessage.Message = $"Local de expedição inserido com sucesso - ID: {oItem.ID}";
+                                oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.OK;
+                                oClassMessage.MessageDescription = "";
+                                oClassMessage.Ok = true;
+                            }
+                            catch (Exception ex)
+                            {
+                                oClassMessage.Message = "FALHA ao inserir novo local de expedição";
+                                oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.ERROR;
+                                oClassMessage.MessageDescription = ex.Message;
+                                oClassMessage.Ok = false;
+                            }
                         }
-                        catch (Exception e)
+                        else
                         {
-                            oClassMessage.Message = "FALHA ao inserir novo local de expedição";
+                            oClassMessage.Message = "FALHA ao inserir novo local de expedição\n" +
+                                                    "o tipo CARREGAMENTO não aceita Pais vinculado.";
                             oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.ERROR;
-                            oClassMessage.MessageDescription = e.Message;
                             oClassMessage.Ok = false;
                         }
+
+                        
                         break;
 
                     case "Editar":
-                        try
+                        if (oItem.Tipo_Expedicao_Codigo.Equals("CARREGAMENTO") && String.IsNullOrEmpty(oItem.Pais))
                         {
-                            this.Editar(oItem);
+                            try
+                            {
+                                this.Editar(oItem);
 
-                            oClassMessage.Message = "Local de expedição ID: " + oItem.ID + " atualizado com sucesso";
-                            oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.OK;
-                            oClassMessage.MessageDescription = "";
-                            oClassMessage.Ok = true;
+                                oClassMessage.Message = $"Local de expedição ID: {oItem.ID} atualizado com sucesso";
+                                oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.OK;
+                                oClassMessage.MessageDescription = "";
+                                oClassMessage.Ok = true;
+                            }
+                            catch (Exception e)
+                            {
+                                oClassMessage.Message = $"FALHA ao editar local de expedição ID: {oItem.ID}";
+                                oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.ERROR;
+                                oClassMessage.MessageDescription = e.Message;
+                                oClassMessage.Ok = false;
+                            }
                         }
-                        catch (Exception e)
+                        else
                         {
-                            oClassMessage.Message = "FALHA ao editar local de expedição ID: " + oItem.ID;
+                            oClassMessage.Message = "FALHA ao inserir novo local de expedição\n" +
+                                                    "o tipo CARREGAMENTO não aceita Pais vinculado.";
                             oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.ERROR;
-                            oClassMessage.MessageDescription = e.Message;
                             oClassMessage.Ok = false;
                         }
                         break;
@@ -113,14 +124,14 @@ namespace sqoTraceabilityStation
                         {
                             this.Excluir(oItem);
 
-                            oClassMessage.Message = "Local de expedição ID: " + oItem.ID + " removido com sucesso";
+                            oClassMessage.Message = $"Local de expedição ID: {oItem.ID} removido com sucesso";
                             oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.OK;
                             oClassMessage.MessageDescription = "";
                             oClassMessage.Ok = true;
                         }
                         catch (Exception e)
                         {
-                            oClassMessage.Message = "FALHA ao remover local de expedição ID: " + oItem.ID;
+                            oClassMessage.Message = $"FALHA ao remover local de expedição ID: {oItem.ID}";
                             oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.ERROR;
                             oClassMessage.MessageDescription = e.Message;
                             oClassMessage.Ok = false;
@@ -131,11 +142,11 @@ namespace sqoTraceabilityStation
                         break;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 oClassMessage.Message = "Erro ao realizar ação!";
                 oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.ERROR;
-                oClassMessage.MessageDescription = e.Message;
+                oClassMessage.MessageDescription = ex.Message;
                 oClassMessage.Ok = false;
             }
             finally
@@ -147,8 +158,6 @@ namespace sqoTraceabilityStation
 
         private void Inserir(sqoClassPcpDynCriteriaItem oPersistencia)
         {
-            ShipmentLocationApi api = new ShipmentLocationApi(basePath);
-
             ShipmentLocationInputModel oPersistenciaMapped = new ShipmentLocationInputModel
             {
                 LocalExpedicao = oPersistencia.Local_Expedicao,
@@ -165,8 +174,6 @@ namespace sqoTraceabilityStation
 
         private void Editar(sqoClassPcpDynCriteriaItem oPersistencia)
         {
-            ShipmentLocationApi api = new ShipmentLocationApi(basePath);
-
             ShipmentLocationModel oPersistenciaMapped = new ShipmentLocationModel
             {
                 Id = oPersistencia.ID,
@@ -185,7 +192,6 @@ namespace sqoTraceabilityStation
 
         private void Excluir(sqoClassPcpDynCriteriaItem oPersistencia)
         {
-            ShipmentLocationApi api = new ShipmentLocationApi(basePath);
 
             api.ApiShipmentLocationDelete(oPersistencia.ID);
         }
