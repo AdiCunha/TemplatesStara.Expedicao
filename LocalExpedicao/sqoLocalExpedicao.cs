@@ -15,8 +15,8 @@ namespace sqoTraceabilityStation
     {
         private string sParamListagem_CRT_Texto = "";
 
-        private static string basePath => "http://nmtwnseqiisdev.dcstara.com.br:81/Sequor.LES.Expedition";
-        ShipmentLocationApi api = new ShipmentLocationApi(basePath);
+        private static string BasePath => "http://nmtwnseqiisdev.dcstara.com.br:81/Sequor.LES.Expedition";
+        ShipmentLocationApi api = new ShipmentLocationApi(BasePath);
 
         public override sqoClassMessage Executar(string sAction
                                                 , string sXmlDados
@@ -67,7 +67,6 @@ namespace sqoTraceabilityStation
                             oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.ERROR;
                             oClassMessage.Ok = false;
                         }
-
                         
                         break;
 
@@ -96,25 +95,6 @@ namespace sqoTraceabilityStation
                             oClassMessage.Message = "FALHA ao inserir novo local de expedição\n" +
                                                     "o tipo CARREGAMENTO não aceita Pais vinculado.";
                             oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.ERROR;
-                            oClassMessage.Ok = false;
-                        }
-                        break;
-
-                    case "Duplicar":
-                        try
-                        {
-                            this.Duplicar(oItem);
-
-                            oClassMessage.Message = "Local de expedição ID: " + oItem.ID + " duplicado com sucesso";
-                            oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.OK;
-                            oClassMessage.MessageDescription = "";
-                            oClassMessage.Ok = true;
-                        }
-                        catch (Exception e)
-                        {
-                            oClassMessage.Message = "FALHA ao duplicar local de expedição ID: " + oItem.ID;
-                            oClassMessage.MessageType = sqoClassMessage.MessageTypeEnum.ERROR;
-                            oClassMessage.MessageDescription = e.Message;
                             oClassMessage.Ok = false;
                         }
                         break;

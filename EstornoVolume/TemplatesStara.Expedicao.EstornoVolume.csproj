@@ -36,7 +36,7 @@
       <HintPath>..\..\..\..\..\..\wsqoleanws\AI1151 PCP\WEB\AI1151WebPcp\AI1151WebPcp\bin\AI1627Common20.dll</HintPath>
     </Reference>
     <Reference Include="AI1627Common40">
-      <HintPath>..\..\..\..\..\..\wsqoleanws\AI1151 PCP\WEB\AI1151WebPcp\AI1151WebPcp\bin\AI1627Common40.dll</HintPath>
+      <HintPath>..\..\..\apps-releases\webpcpservice\AI1627Common40.dll</HintPath>
     </Reference>
     <Reference Include="Sequor.LES.Expedition.Client">
       <HintPath>..\..\..\..\..\..\wsqoleanws\AI1151 PCP\WEB\AI1151WebPcp\AI1151WebPcp\bin\Sequor.LES.Expedition.Client.dll</HintPath>
