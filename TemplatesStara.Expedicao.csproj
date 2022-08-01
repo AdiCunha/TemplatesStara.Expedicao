@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF568B42-B9B7-4820-91A1-5EB417EB253C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TemplateStara.Expedicao</RootNamespace>
+    <AssemblyName>TemplateStara.Expedicao</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\apps-releases\webpcpservice\$(AssemblyName)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\apps-releases\webpcpservice\$(AssemblyName)\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\apps-releases\webpcpservice\$(AssemblyName)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\..\..\apps-releases\webpcpservice\$(AssemblyName)\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AI1151WebPcp">
+      <HintPath>..\..\apps-releases\webpcpservice\AI1151WebPcp.dll</HintPath>
+    </Reference>
+    <Reference Include="AI1151WebPcpConsoleService">
+      <HintPath>..\..\..\apps-releases\webpcpservice\AI1151WebPcpConsoleService.exe</HintPath>
+    </Reference>
+    <Reference Include="AI1450LESExpedicao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\apps-releases\webpcpservice\TemplateStara.Expedicao\AI1450LESExpedicao.dll</HintPath>
+    </Reference>
+    <Reference Include="AI1627Common20">
+      <HintPath>..\..\apps-releases\webpcpservice\AI1627Common20.dll</HintPath>
+    </Reference>
+    <Reference Include="AI1627Common40">
+      <HintPath>..\..\apps-releases\webpcpservice\AI1627Common40.dll</HintPath>
+    </Reference>
+    <Reference Include="AI1627CommonInterface, Version=1.0.7226.18318, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\apps-releases\webpcpservice\AI1627CommonInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="AI1627CommonWCF">
+      <HintPath>..\..\apps-releases\webpcpservice\AI1627CommonWCF.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Stara.Common">
+      <HintPath>..\..\apps-releases\webpcpservice\AssembliesExtras\Common.Stara.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Stara.Common.Cadastro">
+      <HintPath>..\..\apps-releases\webpcpservice\AssembliesExtras\Common.Stara.Common.Cadastro.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Stara.LES.Expedicao">
+      <HintPath>..\..\apps-releases\webpcpservice\AssembliesExtras\Common.Stara.LES.Expedicao.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Stara.LES.Inventario">
+      <HintPath>..\..\apps-releases\webpcpservice\AssembliesExtras\Common.Stara.LES.Inventario.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Stara.LES.Locais">
+      <HintPath>..\..\apps-releases\webpcpservice\AssembliesExtras\Common.Stara.LES.Locais.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Stara.LES.Pcp2Peca">
+      <HintPath>..\..\apps-releases\webpcpservice\AssembliesExtras\Common.Stara.LES.Pcp2Peca.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Stara.LES.Picking">
+      <HintPath>..\..\apps-releases\webpcpservice\AssembliesExtras\Common.Stara.LES.Picking.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Stara.LES.PickingAux">
+      <HintPath>..\..\apps-releases\webpcpservice\AssembliesExtras\Common.Stara.LES.PickingAux.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Stara.MES.Cadastro">
+      <HintPath>..\..\apps-releases\webpcpservice\AssembliesExtras\Common.Stara.MES.Cadastro.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Stara.MES.OrdemProducao">
+      <HintPath>..\..\apps-releases\webpcpservice\AssembliesExtras\Common.Stara.MES.OrdemProducao.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\apps-releases\webpcpservice\DevExpress.Data.v12.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\apps-releases\webpcpservice\DevExpress.Printing.v12.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\apps-releases\webpcpservice\DevExpress.Utils.v12.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\apps-releases\webpcpservice\DevExpress.XtraEditors.v12.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\apps-releases\webpcpservice\DevExpress.XtraGrid.v12.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\apps-releases\webpcpservice\DevExpress.XtraLayout.v12.2.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\..\apps-releases\webpcpservice\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.DDF">
+      <HintPath>..\..\apps-releases\webpcpservice\NPOI.DDF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.HPSF">
+      <HintPath>..\..\apps-releases\webpcpservice\NPOI.HPSF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.HSSF">
+      <HintPath>..\..\apps-releases\webpcpservice\NPOI.HSSF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\..\apps-releases\webpcpservice\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\..\apps-releases\webpcpservice\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\..\apps-releases\webpcpservice\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.POIFS">
+      <HintPath>..\..\apps-releases\webpcpservice\NPOI.POIFS.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.Util">
+      <HintPath>..\..\apps-releases\webpcpservice\NPOI.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="sequor-expedicao">
+      <HintPath>ExternalLibrary\sequor-expedicao.dll</HintPath>
+    </Reference>
+    <Reference Include="sequor-expedicao-client">
+      <HintPath>ExternalLibrary\sequor-expedicao-client.dll</HintPath>
+    </Reference>
+    <Reference Include="sequor-spool-data">
+      <HintPath>ExternalLibrary\sequor-spool-data.dll</HintPath>
+    </Reference>
+    <Reference Include="sqoClassLibraryAI0502Biblio">
+      <HintPath>..\..\apps-releases\webpcpservice\sqoClassLibraryAI0502Biblio.dll</HintPath>
+    </Reference>
+    <Reference Include="sqoClassLibraryAI0502Message">
+      <HintPath>..\..\apps-releases\webpcpservice\sqoClassLibraryAI0502Message.dll</HintPath>
+    </Reference>
+    <Reference Include="sqoClassLibraryAI0502VariaveisSistema">
+      <HintPath>..\..\apps-releases\webpcpservice\sqoClassLibraryAI0502VariaveisSistema.dll</HintPath>
+    </Reference>
+    <Reference Include="sqoClassLibraryAI1151FilaProducao">
+      <HintPath>..\..\apps-releases\webpcpservice\sqoClassLibraryAI1151FilaProducao.dll</HintPath>
+    </Reference>
+    <Reference Include="sqoClassLibraryProgramacao">
+      <HintPath>..\..\apps-releases\webpcpservice\sqoClassLibraryProgramacao.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TemplatesStara.CommonStara">
+      <HintPath>..\..\..\apps-releases\webpcpservice\TemplatesStara.CommonStara\TemplatesStara.CommonStara.dll</HintPath>
+    </Reference>
+    <Reference Include="TemplatesStara.Web">
+      <HintPath>..\TemplatesStara.Web\obj\Debug\TemplatesStara.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlterarRastreabilidadeItemPicking\Web.ExpedicaoAlterarRastPickingPersistencia.cs" />
+    <Compile Include="AlterarRastreabilidadeItemPicking\WebExpedicaoAlterarRastPicking.cs.cs" />
+    <Compile Include="AlterarSituacaoItemRemessa\Business\AlterarSituacaoItemRemessaBusiness.cs" />
+    <Compile Include="AlterarSituacaoItemRemessa\Dao\AlterarSituacaoItemRemessaDao.cs" />
+    <Compile Include="AlterarSituacaoItemRemessa\DataModel\SituacaoRemessaItem.cs" />
+    <Compile Include="AlternarRastreabilidadeItemPicking\webPickingAlternarRasItemPersistencia.cs" />
+    <Compile Include="AlternarRastreabilidadeItemPicking\webPickingAlternarRastItem.cs" />
+    <Compile Include="BloqueioEstoque\sqoExpedicaoBloqueioEstoque.cs" />
+    <Compile Include="BloqueioEstoque\sqoExpedicaoBloqueioEstoqueMotivos.cs" />
+    <Compile Include="CadastroChave\sqoExpedicaoCadastroChave.cs" />
+    <Compile Include="CadastroChave\sqoExpedicaoCadastroChaveListagem.cs" />
+    <Compile Include="CadastroChave\sqoExpedicaoCadastroChaveMovimentacao.cs" />
+    <Compile Include="CadastroChave\sqoExpedicaoCadastroChaveCommon.cs.cs" />
+    <Compile Include="CadastroChave\sqoExpedicaoCadastroChaveTipoExpedicaoListagem.cs" />
+    <Compile Include="CadastroChave\sqoExpedicaoCadastroChaveTipoExpedicaoMovimentacao.cs" />
+    <Compile Include="CadastroChave\sqoExpedicaoCadastroChaveUsuarioListagem.cs" />
+    <Compile Include="CadastroChave\sqoExpedicaoCadastroChaveUsuarioMovimentacao.cs" />
+    <Compile Include="CadastroChave\sqoExpedicaoChave.cs" />
+    <Compile Include="CadastroComponente\Business\Web.ProcessCadCompValidacoes.cs" />
+    <Compile Include="CadastroComponente\Business\Web.ProcessCadastroComponente.cs" />
+    <Compile Include="CadastroComponente\Business\Web.ProcessImpCadCompDownloadExcel.cs" />
+    <Compile Include="CadastroComponente\Dao\Web.CadastroComponenteDao.cs" />
+    <Compile Include="CadastroComponente\Business\Web.ProcessImportCadastroComponente.cs" />
+    <Compile Include="CadastroComponente\Dao\Web.ImportCadastroComponenteDao.cs" />
+    <Compile Include="CadastroComponente\DataModel\CadastroComponente.cs" />
+    <Compile Include="CadastroComponente\DataModel\LinhaPlanilha.cs" />
+    <Compile Include="CadastroVolume\DownloadExcelImportCadastroVolumeNova.cs" />
+    <Compile Include="CadastroVolume\sqoCadastroVolume.cs" />
+    <Compile Include="CadastroVolume\sqoCadastroVolumeCommon.cs" />
+    <Compile Include="CadastroVolume\sqoCadastroVolumeModel.cs" />
+    <Compile Include="CadastroVolume\sqoImportCadastroVolume.cs" />
+    <Compile Include="CadastroVolume\sqoImportCastroVolumeNova.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\Business\Web.ProcessGeracaoNumeroSerie.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\Business\Web.ProcessVincularComponenteAddValor.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\Business\Web.ProcessVincularComponenteListagem.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\Business\Web.ProcessVincularComponenteListagemTipoDez.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\Business\Web.ProcessVincularComponentePrint.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\Business\Web.ProcessVincularComponenteSave.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\Dao\GerarNumeroSerieDao.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\Dao\ImprimirGeracaoNumeroSerieDao.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\Dao\VincularComponenteListagemDao.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\Dao\VincularComponenteSaveDao.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\DataModel\DocumentoReferenciaListagem.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\DataModel\NumeroSerieComponente.cs" />
+    <Compile Include="GeracaoNumeroSerieComponente\DataModel\NumeroSerieGeracao.cs" />
+    <Compile Include="GeracaoVolumeRecompra\Web.Expedicao.GeracaoVolumeRecompra.cs" />
+    <Compile Include="ImpressãoChaveExpedicao\Business\WebProcessBusinessLogic.cs" />
+    <Compile Include="ImpressãoChaveExpedicao\Business\WebProcessImpressaoChaveExpedicao.cs" />
+    <Compile Include="ImpressãoChaveExpedicao\DataModel\ChaveExpedicao.cs" />
+    <Compile Include="LiberacaoGrupoRemessa\sqoLiberacaoGrupoRemessa.cs" />
+    <Compile Include="LiberacaoGrupoRemessa\sqoLiberacaoPlanejamentoGrupoRemessa.cs" />
+    <Compile Include="LocalExpedicao\Dependencias\sqoClassPcpDynCriteriaItem.cs" />
+    <Compile Include="LocalExpedicao\sqoLocalExpedicao.cs" />
+    <Compile Include="ReimpressaoAgrupamentoVolumes\Business\ReipressaoAgrupamentoVolumeBusiness.cs" />
+    <Compile Include="ReimpressaoAgrupamentoVolumes\DataModel\AgrupamentoVolumes.cs" />
+    <Compile Include="ReimpressaoAgrupamentoVolumes\Business\ReipressaoAgrupamentoVolumeProcess.cs" />
+    <Compile Include="RetrabalhoPaRecompra\Web.Expedicao.GeracaoVolumeRecompraListagem.cs" />
+    <Compile Include="GeracaoVolume\sqoExpedicaoGeracaoVolumeEstorno.cs" />
+    <Compile Include="GeracaoVolume\sqoExpedicaoGeracaoVolume.cs" />
+    <Compile Include="GeracaoVolume\sqoExpedicaoGeracaoVolumePersistencia.cs" />
+    <Compile Include="RastreabilidadeComponente\sqoExpedicaoGeracaoRastreabilidadeComponenteAddRem.cs" />
+    <Compile Include="RastreabilidadeComponente\sqoExpedicaoGeracaoRastrComponenteListagem.cs" />
+    <Compile Include="RastreabilidadeComponente\sqoExpedicaoGeracaoRastreabilidadeComponenteSave.cs" />
+    <Compile Include="RemessaControlePendencia\sqoExpedicaoRemessaControlePendencia.cs" />
+    <Compile Include="RemessaControlePendencia\sqoExpedicaoRemessaControlePendenciaListagem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetrabalhoPaRecompra\Web.Expedicao.GeracaoVolumeRetrabalhoPA.cs" />
+    <Compile Include="RetrabalhoPaRecompra\Web.Expedicao.GeracaoVolumeRetrabalhoPaDataModel.cs" />
+    <Compile Include="TransicaoStatus\Business\WebProcessTransicaoStatusInserir.cs" />
+    <Compile Include="TransicaoStatus\Business\WebProcessTransicaoStatusInserirValidacoes.cs" />
+    <Compile Include="TransicaoStatus\Business\WebProcessTransicaoStatusListagem.cs" />
+    <Compile Include="TransicaoStatus\Business\WebProcessTransicaoStatusPersistencia.cs" />
+    <Compile Include="TransicaoStatus\Business\WebProcessVerificarModulo.cs" />
+    <Compile Include="TransicaoStatus\Business\WebProcessVerificarModuloInsert.cs" />
+    <Compile Include="TransicaoStatus\Dao\DaoStatusRemessa.cs" />
+    <Compile Include="TransicaoStatus\DataModel\StatusTransitions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CadastroComponente\Business\Web.ProcessImportCadCompValidacoes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Sequor.LES.Expedition.Client">
+      <Version>1.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Sequor.LES.Kit.Client">
+      <Version>1.4.9</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GeracaoRemessaVolumeRecompra\Web.Expedicao.GeracaoRemessaVolumeRecompra.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
